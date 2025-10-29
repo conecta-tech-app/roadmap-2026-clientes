@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kenit SCM: Road Map 2026</title>
+    <style>
+        :root {
+            --color-primary: #330099; /* Azul/Roxo Escuro */
+            --color-secondary: #66CC00; /* Verde do Logo */
+            --color-accent: #FF6600; /* Laranja (para CTA/Destaque) */
+            --color-text: #333333;
+            --color-light: #F4F4F9;
+            --color-white: #FFFFFF;
+            --font-family-sans: 'Arial', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family-sans);
+            background-color: var(--color-light);
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        /* Header e Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--color-primary) 0%, #440BB0 100%);
+            color: var(--color-white);
+            padding: 80px 5%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: var(--color-secondary);
+            opacity: 0.1;
+            border-radius: 50%;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            left: -80px;
+            width: 300px;
+            height: 300px;
+            background: var(--color-accent);
+            opacity: 0.1;
+            border-radius: 50%;
+        }
+
+        .hero h1 {
+            font-size: 2.8em;
+            margin-bottom: 20px;
+            font-weight: bold;
+            line-height: 1.2;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--color-accent);
+            color: var(--color-white);
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-button:hover {
+            background-color: #FF8C42;
+            transform: translateY(-2px);
+        }
+
+        /* Seções de Conteúdo */
+        .section {
+            padding: 60px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section h2 {
+            font-size: 2em;
+            color: var(--color-primary);
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 3px solid var(--color-secondary);
+            display: inline-block;
+            padding-bottom: 10px;
+            width: auto;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+
+        /* Destaques (Impactos) */
+        .impacts {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .impact-card {
+            background-color: var(--color-white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            flex: 1 1 280px;
+            min-width: 250px;
+            border-top: 5px solid var(--color-secondary);
+        }
+
+        .impact-card .value {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: var(--color-accent);
+            margin-bottom: 5px;
+        }
+
+        .impact-card .label {
+            font-size: 1.1em;
+            color: var(--color-primary);
+            font-weight: 500;
+        }
+
+        /* Dashboard Cards */
+        .dashboard-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .dashboard-card {
+            background-color: var(--color-white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid var(--color-secondary);
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .dashboard-card h3 {
+            font-size: 1.4em;
+            color: var(--color-primary);
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--color-accent);
+            padding-bottom: 8px;
+        }
+
+        .dashboard-card .section-label {
+            display: inline-block;
+            background-color: var(--color-secondary);
+            color: var(--color-white);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .dashboard-card .dashboard-section {
+            margin-bottom: 15px;
+        }
+
+        .dashboard-card .dashboard-section strong {
+            color: var(--color-primary);
+            display: block;
+            margin-top: 12px;
+            margin-bottom: 5px;
+            font-size: 0.95em;
+        }
+
+        .dashboard-card .dashboard-section:first-child strong {
+            margin-top: 0;
+        }
+
+        .dashboard-card .dashboard-section p {
+            margin: 0;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
+        .dashboard-card .dashboard-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 5px 0 0 0;
+        }
+
+        .dashboard-card .dashboard-section ul li {
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="%2366CC00" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>') no-repeat left 2px;
+            background-size: 14px;
+            padding-left: 22px;
+            margin-bottom: 6px;
+            font-size: 0.9em;
+        }
+
+        .dashboard-card .public-target {
+            background-color: #F0F0F0;
+            padding: 12px;
+            border-radius: 5px;
+            margin-top: 15px;
+            font-size: 0.9em;
+            border-left: 3px solid var(--color-accent);
+        }
+
+        .dashboard-card .public-target strong {
+            color: var(--color-accent);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* Roadmap Blocks */
+        .block-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        .block-card {
+            background-color: var(--color-white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .block-card h3 {
+            font-size: 1.5em;
+            color: var(--color-white);
+            margin-top: 0;
+            padding: 15px;
+            margin: -30px -30px 20px -30px;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .block-card.block1 h3 {
+            background-color: var(--color-secondary);
+        }
+
+        .block-card.block2 h3 {
+            background-color: var(--color-accent);
+        }
+
+        .block-card.block3 h3 {
+            background-color: var(--color-primary);
+        }
+
+        .block-card p {
+            font-size: 0.95em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            text-align: center;
+            padding: 30px 5%;
+            font-size: 0.9em;
+            margin-top: 60px;
+        }
+
+        .footer a {
+            color: var(--color-secondary);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Formulário */
+        .form-container {
+            background-color: var(--color-white);
+            border: 1px solid #E0E0E0;
+            border-radius: 8px;
+            padding: 30px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .form-container input,
+        .form-container textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: var(--font-family-sans);
+            font-size: 0.95em;
+        }
+
+        .form-container textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .form-container input:focus,
+        .form-container textarea:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 5px rgba(51, 0, 153, 0.2);
+        }
+
+        .form-container label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: var(--color-primary);
+            font-size: 0.95em;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 5%;
+            }
+            .hero h1 {
+                font-size: 2em;
+            }
+            .hero p {
+                font-size: 1.1em;
+            }
+            .impacts {
+                flex-direction: column;
+            }
+            .impact-card {
+                flex: 1 1 100%;
+            }
+            .dashboard-container {
+                grid-template-columns: 1fr;
+            }
+            .block-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div style="font-size: 2.5em; font-weight: bold; margin-bottom: 20px;">
+            <span style="color: var(--color-secondary);">K</span><span style="color: var(--color-white);">enit</span>
+        </div>
+        
+        <h1>Road Map 2026: Dashboards Estratégicos de Supply Chain</h1>
+        
+        <p>Conheça a suíte de 20 dashboards estratégicos que garantem o controle total da sua cadeia de suprimentos, liberando capital e maximizando a rentabilidade. Veja como a Kenit está transformando dados em lucro e eficiência em 2026.</p>
+    </header>
+
+    <section class="section" id="impacto">
+        <h2>O Impacto que Você Verá em 2025-2026</h2>
+        <p style="text-align: center; max-width: 900px; margin: 0 auto 50px;">Nossos dashboards não são apenas gráficos bonitos. São ferramentas de decisão que geram resultados financeiros tangíveis, combatendo os principais pontos de dor do mercado.</p>
+        
+        <div class="impacts">
+            <div class="impact-card">
+                <div class="value">↑ 25%</div>
+                <div class="label">Ganho em Eficiência de Compras</div>
+            </div>
+            <div class="impact-card">
+                <div class="value">↓ 20%</div>
+                <div class="label">Redução de Capital Imobilizado em Estoque</div>
+            </div>
+            <div class="impact-card">
+                <div class="value">↓ 30%</div>
+                <div class="label">Redução de Rupturas e Compras Emergenciais</div>
+            </div>
+            <div class="impact-card">
+                <div class="value">↑ 15%</div>
+                <div class="label">Aumento na Acurácia de Previsão de Demanda</div>
+            </div>
+            <div class="impact-card">
+                <div class="value">↑ 18%</div>
+                <div class="label">Melhoria em ROI de Promoções e Campanhas</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOCO 1: Supply Chain Analytics & MRP -->
+    <section class="section" id="bloco1">
+        <h2>Bloco 1: Supply Chain Analytics & MRP</h2>
+        <p style="text-align: center; max-width: 900px; margin: 0 auto 30px; font-size: 1.1em; color: var(--color-primary);">
+            <strong>Foco em eficiência operacional, controle de estoque e abastecimento inteligente.</strong>
+        </p>
+
+        <div class="dashboard-container">
+
+            <!-- Dashboard 1 -->
+            <div class="dashboard-card">
+                <span class="section-label">BLOCO 1</span>
+                <h3>Curvas Cruzadas (Frequência × Faturamento)</h3>
+                <div class="dashboard-section">
+                    <strong>Objetivo:</strong>
+                    <p>Priorizar capital em itens de alto giro e alto impacto financeiro.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Problema que Resolve:</strong>
+                    <p>Compras e estoques desequilibrados entre produtos de alta e baixa rotação.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Solução Proposta:</strong>
+                    <p>Dashboard que cruza frequência de vendas e faturamento, classificando SKUs por impacto.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Principais Indicadores:</strong>
+                    <ul>
+                        <li>% Projeção de vendas</li>
+                        <li>Cobertura atual x ideal (dias)</li>
+                        <li>Aumentar / Reduzir (R$ e unidades)</li>
+                    </ul>
+                </div>
+                <div class="public-target">
+                    <strong>Público-Alvo:</strong>
+                    Diretoria, Compras, Supply Chain. Definir política de estoque e priorizar capital.
+                </div>
+            </div>
+
+            <!-- Dashboard 2 -->
+            <div class="dashboard-card">
+                <span class="section-label">BLOCO 1</span>
+                <h3>Evolução de Estoque Parametrizado</h3>
+                <div class="dashboard-section">
+                    <strong>Objetivo:</strong>
+                    <p>Monitorar semanalmente a aderência ao estoque ideal e detectar desvios.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Problema que Resolve:</strong>
+                    <p>Dificuldade em acompanhar o impacto das compras e reposições na cobertura.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Solução Proposta:</strong>
+                    <p>Painel de tendência semanal entre estoque atual e ideal com alertas visuais.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Principais Indicadores:</strong>
+                    <ul>
+                        <li>Estoque atual vs ideal</li>
+                        <li>Variação semanal</li>
+                        <li>Capital a aumentar/reduzir</li>
+                    </ul>
+                </div>
+                <div class="public-target">
+                    <strong>Público-Alvo:</strong>
+                    Compras e Planejamento. Acompanhar convergência ao estoque ideal.
+                </div>
+            </div>
+
+            <!-- Dashboard 3 -->
+            <div class="dashboard-card">
+                <span class="section-label">BLOCO 1</span>
+                <h3>Excesso e Capital Imobilizado</h3>
+                <div class="dashboard-section">
+                    <strong>Objetivo:</strong>
+                    <p>Reduzir estoques acima do ideal e liberar capital parado.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Problema que Resolve:</strong>
+                    <p>Excesso de produtos de baixo giro e alto custo.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Solução Proposta:</strong>
+                    <p>Painel que identifica excesso por família, canal e fornecedor, quantificando valor financeiro.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Principais Indicadores:</strong>
+                    <ul>
+                        <li>Valor em excesso (R$)</li>
+                        <li>% do estoque acima do ideal</li>
+                        <li>Top 20 famílias com capital parado</li>
+                    </ul>
+                </div>
+                <div class="public-target">
+                    <strong>Público-Alvo:</strong>
+                    Diretoria Financeira e Supply Chain. Planejar promoções e redistribuições.
+                </div>
+            </div>
+
+            <!-- Dashboard 4 -->
+            <div class="dashboard-card">
+                <span class="section-label">BLOCO 1</span>
+                <h3>Ruptura e Risco de Ruptura</h3>
+                <div class="dashboard-section">
+                    <strong>Objetivo:</strong>
+                    <p>Reduzir perdas de venda e identificar pontos de falha no abastecimento.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Problema que Resolve:</strong>
+                    <p>Falta de visibilidade sobre rupturas reais e potenciais.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Solução Proposta:</strong>
+                    <p>Painel com detecção de rupturas e cobertura crítica por SKU/canal.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Principais Indicadores:</strong>
+                    <ul>
+                        <li>% rupturas</li>
+                        <li>Valor potencial perdido</li>
+                        <li>Cobertura &lt; estoque mínimo</li>
+                    </ul>
+                </div>
+                <div class="public-target">
+                    <strong>Público-Alvo:</strong>
+                    Operações e Planejamento. Gerar alertas automáticos de reposição.
+                </div>
+            </div>
+
+            <!-- Dashboard 5 -->
+            <div class="dashboard-card">
+                <span class="section-label">BLOCO 1</span>
+                <h3>Slow/No Moving (Aging de Estoque)</h3>
+                <div class="dashboard-section">
+                    <strong>Objetivo:</strong>
+                    <p>Gerenciar produtos parados e minimizar perdas de obsolescência.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Problema que Resolve:</strong>
+                    <p>Falta de visibilidade sobre aging e estoque sem giro.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Solução Proposta:</strong>
+                    <p>Painel que classifica produtos por faixas de inatividade e valor financeiro.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Principais Indicadores:</strong>
+                    <ul>
+                        <li>Aging (dias sem venda)</li>
+                        <li>Valor de estoque parado (R$)</li>
+                        <li>% capital parado</li>
+                    </ul>
+                </div>
+                <div class="public-target">
+                    <strong>Público-Alvo:</strong>
+                    Supply Chain e Financeiro. Definir ações: descontinuação, bundle ou promoção.
+                </div>
+            </div>
+
+            <!-- Dashboard 6 -->
+            <div class="dashboard-card">
+                <span class="section-label">BLOCO 1</span>
+                <h3>Compras & MRP Pipeline</h3>
+                <div class="dashboard-section">
+                    <strong>Objetivo:</strong>
+                    <p>Monitorar o funil de execução das sugestões de compra e reposição.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Problema que Resolve:</strong>
+                    <p>Falta de rastreabilidade entre MRP, cotações e pedidos confirmados.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Solução Proposta:</strong>
+                    <p>Painel de acompanhamento de status (sugerido → cotado → comprado → recebido).</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Principais Indicadores:</strong>
+                    <ul>
+                        <li>Sugestões geradas</li>
+                        <li>% confirmadas</li>
+                        <li>Cobertura pós-compra</li>
+                    </ul>
+                </div>
+                <div class="public-target">
+                    <strong>Público-Alvo:</strong>
+                    Compras e Planejamento. Controlar execução do MRP e priorizar fornecedores críticos.
+                </div>
+            </div>
+
+            <!-- Dashboard 7 -->
+            <div class="dashboard-card">
+                <span class="section-label">BLOCO 1</span>
+                <h3>Performance de Fornecedores (OTIF)</h3>
+                <div class="dashboard-section">
+                    <strong>Objetivo:</strong>
+                    <p>Avaliar cumprimento de prazos e entregas completas.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Problema que Resolve:</strong>
+                    <p>Atrasos e entregas parciais sem medição objetiva.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Solução Proposta:</strong>
+                    <p>Dashboard OTIF com lead time médio e ranking de performance.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Principais Indicadores:</strong>
+                    <ul>
+                        <li>OTIF (%)</li>
+                        <li>Lead time médio (dias)</li>
+                        <li>Pedidos fora do SLA</li>
+                    </ul>
+                </div>
+                <div class="public-target">
+                    <strong>Público-Alvo:</strong>
+                    Compras e Diretoria de Operações. Negociar SLAs e premiar fornecedores consistentes.
+                </div>
+            </div>
+
+            <!-- Dashboard 8 -->
+            <div class="dashboard-card">
+                <span class="section-label">BLOCO 1</span>
+                <h3>Demanda & Previsão (MAPE)</h3>
+                <div class="dashboard-section">
+                    <strong>Objetivo:</strong>
+                    <p>Mensurar acurácia das previsões e sazonalidade de demanda.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Problema que Resolve:</strong>
+                    <p>Dificuldade em validar qualidade das previsões de venda.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Solução Proposta:</strong>
+                    <p>Painel de MAPE por família/SKU e histórico de erro médio.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Principais Indicadores:</strong>
+                    <ul>
+                        <li>MAPE 30d/90d</li>
+                        <li>Erro absoluto médio</li>
+                        <li>Tendência de previsão vs vendas</li>
+                    </ul>
+                </div>
+                <div class="public-target">
+                    <strong>Público-Alvo:</strong>
+                    Planejamento e Supply Chain. Ajustar parâmetros de previsão e cobertura.
+                </div>
+            </div>
+
+            <!-- Dashboard 9 -->
+            <div class="dashboard-card">
+                <span class="section-label">BLOCO 1</span>
+                <h3>Cobertura de Estoque (Atual × Ideal)</h3>
+                <div class="dashboard-section">
+                    <strong>Objetivo:</strong>
+                    <p>Avaliar equilíbrio entre cobertura real e ideal por grupo.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Problema que Resolve:</strong>
+                    <p>Diferenças não monitoradas entre cobertura planejada e real.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Solução Proposta:</strong>
+                    <p>Painel comparativo de cobertura e % de equilíbrio.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Principais Indicadores:</strong>
+                    <ul>
+                        <li>Cobertura atual</li>
+                        <li>Cobertura ideal</li>
+                        <li>% de equilíbrio</li>
+                    </ul>
+                </div>
+                <div class="public-target">
+                    <strong>Público-Alvo:</strong>
+                    Planejamento e Compras. Detectar distorções e ajustar políticas de compra.
+                </div>
+            </div>
+
+            <!-- Dashboard 10 -->
+            <div class="dashboard-card">
+                <span class="section-label">BLOCO 1</span>
+                <h3>Promoções & ROI Comercial</h3>
+                <div class="dashboard-section">
+                    <strong>Objetivo:</strong>
+                    <p>Avaliar retorno das promoções e seu impacto em vendas e margem.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Problema que Resolve:</strong>
+                    <p>Promoções sem medição real de rentabilidade.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Solução Proposta:</strong>
+                    <p>Painel que mede lift de receita e ROI por campanha.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Principais Indicadores:</strong>
+                    <ul>
+                        <li>ROI Promo</li>
+                        <li>Lift de receita</li>
+                        <li>Custo da promoção</li>
+                    </ul>
+                </div>
+                <div class="public-target">
+                    <strong>Público-Alvo:</strong>
+                    Marketing e Diretoria Comercial. Definir políticas promocionais mais rentáveis.
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- BLOCO 2: Compras & Finanças Operacionais -->
+    <section class="section" id="bloco2">
+        <h2>Bloco 2: Compras & Finanças Operacionais</h2>
+        <p style="text-align: center; max-width: 900px; margin: 0 auto 30px; font-size: 1.1em; color: var(--color-primary);">
+            <strong>Foco em otimização financeira, saving, ciclo de compras e rentabilidade.</strong>
+        </p>
+
+        <div class="dashboard-container">
+
+            <!-- Dashboard 11 -->
+            <div class="dashboard-card" style="border-left-color: var(--color-accent);">
+                <span class="section-label" style="background-color: var(--color-accent);">BLOCO 2</span>
+                <h3>Análise do Comprador</h3>
+                <div class="dashboard-section">
+                    <strong>Objetivo:</strong>
+                    <p>Acompanhar produtividade e desempenho individual de compradores.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Problema que Resolve:</strong>
+                    <p>Ausência de visibilidade consolidada de performance do time.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Solução Proposta:</strong>
+                    <p>Painel com KPIs de valor negociado, saving e cumprimento de prazos.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Principais Indicadores:</strong>
+                    <ul>
+                        <li>Saving (R$ e %)</li>
+                        <li>Pedidos gerados</li>
+                        <li>Ciclo médio de compra</li>
+                    </ul>
+                </div>
+                <div class="public-target">
+                    <strong>Público-Alvo:</strong>
+                    Gestores de Compras. Mensurar performance e alocação de carteira.
+                </div>
+            </div>
+
+            <!-- Dashboard 12 -->
+            <div class="dashboard-card" style="border-left-color: var(--color-accent);">
+                <span class="section-label" style="background-color: var(--color-accent);">BLOCO 2</span>
+                <h3>Saving de Compras</h3>
+                <div class="dashboard-section">
+                    <strong>Objetivo:</strong>
+                    <p>Identificar ganhos obtidos em negociações versus baseline.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Problema que Resolve:</strong>
+                    <p>Dificuldade em mensurar savings consolidados por fornecedor e família.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Solução Proposta:</strong>
+                    <p>Painel que calcula economia total e percentual, comparando custo real vs planejado.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Principais Indicadores:</strong>
+                    <ul>
+                        <li>Saving total (R$)</li>
+                        <li>Saving %</li>
+                        <li>Top fornecedores por saving</li>
+                    </ul>
+                </div>
+                <div class="public-target">
+                    <strong>Público-Alvo:</strong>
+                    Financeiro e Compras. Demonstrar resultados de negociação e políticas de custo.
+                </div>
+            </div>
+
+            <!-- Dashboard 13 -->
+            <div class="dashboard-card" style="border-left-color: var(--color-accent);">
+                <span class="section-label" style="background-color: var(--color-accent);">BLOCO 2</span>
+                <h3>Speeding de Compras</h3>
+                <div class="dashboard-section">
+                    <strong>Objetivo:</strong>
+                    <p>Reduzir o ciclo de compra e identificar gargalos no fluxo.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Problema que Resolve:</strong>
+                    <p>Falta de monitoramento do tempo entre requisição e recebimento.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Solução Proposta:</strong>
+                    <p>Painel de ciclo médio por etapa e SLA de fechamento.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Principais Indicadores:</strong>
+                    <ul>
+                        <li>Ciclo médio (dias)</li>
+                        <li>% dentro do SLA</li>
+                        <li>Etapas críticas</li>
+                    </ul>
+                </div>
+                <div class="public-target">
+                    <strong>Público-Alvo:</strong>
+                    Compras e Operações. Aprimorar eficiência e lead time interno.
+                </div>
+            </div>
+
+            <!-- Dashboard 14 -->
+            <div class="dashboard-card" style="border-left-color: var(--color-accent);">
+                <span class="section-label" style="background-color: var(--color-accent);">BLOCO 2</span>
+                <h3>Condições Comerciais × Vendas</h3>
+                <div class="dashboard-section">
+                    <strong>Objetivo:</strong>
+                    <p>Correlacionar descontos e prazos com impacto em vendas.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Problema que Resolve:</strong>
+                    <p>Ausência de visibilidade do efeito das condições sobre a receita.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Solução Proposta:</strong>
+                    <p>Painel que cruza % desconto/prazo com variação de vendas e margem.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Principais Indicadores:</strong>
+                    <ul>
+                        <li>Desconto médio (%)</li>
+                        <li>Prazo médio (dias)</li>
+                        <li>Correlação desconto×vendas</li>
+                    </ul>
+                </div>
+                <div class="public-target">
+                    <strong>Público-Alvo:</strong>
+                    Financeiro e Comercial. Ajustar políticas comerciais e de pagamento.
+                </div>
+            </div>
+
+            <!-- Dashboard 15 -->
+            <div class="dashboard-card" style="border-left-color: var(--color-accent);">
+                <span class="section-label" style="background-color: var(--color-accent);">BLOCO 2</span>
+                <h3>Saúde de Estoque (Capital × Cobertura)</h3>
+                <div class="dashboard-section">
+                    <strong>Objetivo:</strong>
+                    <p>Avaliar a eficiência global do estoque e do capital investido.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Problema que Resolve:</strong>
+                    <p>Excesso e rupturas analisados de forma isolada.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Solução Proposta:</strong>
+                    <p>Painel consolidado com % equilibrado, capital parado e cobertura média.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Principais Indicadores:</strong>
+                    <ul>
+                        <li>% estoque equilibrado</li>
+                        <li>Capital em excesso</li>
+                        <li>Capital em ruptura</li>
+                    </ul>
+                </div>
+                <div class="public-target">
+                    <strong>Público-Alvo:</strong>
+                    Diretoria e Supply Chain. Monitorar saúde geral e resultados de políticas de estoque.
+                </div>
+            </div>
+
+            <!-- Dashboard 16 -->
+            <div class="dashboard-card" style="border-left-color: var(--color-accent);">
+                <span class="section-label" style="background-color: var(--color-accent);">BLOCO 2</span>
+                <h3>Rentabilidade & Mix Comercial</h3>
+                <div class="dashboard-section">
+                    <strong>Objetivo:</strong>
+                    <p>Analisar margem líquida e impacto de promoções no mix de produtos.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Problema que Resolve:</strong>
+                    <p>Dificuldade em entender como descontos e custos afetam rentabilidade.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Solução Proposta:</strong>
+                    <p>Painel com margem líquida, mix e ROI de promoções.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Principais Indicadores:</strong>
+                    <ul>
+                        <li>Margem líquida</li>
+                        <li>Mix de produtos</li>
+                        <li>ROI promo</li>
+                    </ul>
+                </div>
+                <div class="public-target">
+                    <strong>Público-Alvo:</strong>
+                    Diretoria Comercial e Financeira. Direcionar estratégias de preço e rentabilidade.
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- BLOCO 3: Indicadores Executivos & OKRs -->
+    <section class="section" id="bloco3">
+        <h2>Bloco 3: Indicadores Executivos & OKRs</h2>
+        <p style="text-align: center; max-width: 900px; margin: 0 auto 30px; font-size: 1.1em; color: var(--color-primary);">
+            <strong>Foco em visão consolidada para diretoria e metas estratégicas.</strong>
+        </p>
+
+        <div class="dashboard-container">
+
+            <!-- Dashboard 17 -->
+            <div class="dashboard-card" style="border-left-color: var(--color-primary);">
+                <span class="section-label" style="background-color: var(--color-primary);">BLOCO 3</span>
+                <h3>Eficiência de Abastecimento</h3>
+                <div class="dashboard-section">
+                    <strong>Objetivo:</strong>
+                    <p>Consolidar KPIs operacionais de supply chain em um painel executivo.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Problema que Resolve:</strong>
+                    <p>Indicadores dispersos dificultando visão de performance.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Solução Proposta:</strong>
+                    <p>Painel executivo com cobertura média, % dentro do lead time e capital em ruptura.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Principais Indicadores:</strong>
+                    <ul>
+                        <li>Cobertura média</li>
+                        <li>% dentro do lead time</li>
+                        <li>Capital em ruptura</li>
+                    </ul>
+                </div>
+                <div class="public-target">
+                    <strong>Público-Alvo:</strong>
+                    Diretoria e Planejamento. Monitorar execução estratégica de supply chain.
+                </div>
+            </div>
+
+            <!-- Dashboard 18 -->
+            <div class="dashboard-card" style="border-left-color: var(--color-primary);">
+                <span class="section-label" style="background-color: var(--color-primary);">BLOCO 3</span>
+                <h3>Capital em Excesso / Ruptura (Executivo)</h3>
+                <div class="dashboard-section">
+                    <strong>Objetivo:</strong>
+                    <p>Mostrar o balanço de capital imobilizado e perdido.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Problema que Resolve:</strong>
+                    <p>Ausência de visão executiva consolidada entre excesso e ruptura.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Solução Proposta:</strong>
+                    <p>Painel financeiro com valores absolutos e percentuais de capital parado e perdido.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Principais Indicadores:</strong>
+                    <ul>
+                        <li>Capital em excesso (R$)</li>
+                        <li>Capital em ruptura (R$)</li>
+                        <li>% estoque equilibrado</li>
+                    </ul>
+                </div>
+                <div class="public-target">
+                    <strong>Público-Alvo:</strong>
+                    Diretoria Financeira e CEO. Avaliar impacto do estoque na geração de caixa.
+                </div>
+            </div>
+
+            <!-- Dashboard 19 -->
+            <div class="dashboard-card" style="border-left-color: var(--color-primary);">
+                <span class="section-label" style="background-color: var(--color-primary);">BLOCO 3</span>
+                <h3>Aderência à Política de Cobertura</h3>
+                <div class="dashboard-section">
+                    <strong>Objetivo:</strong>
+                    <p>Medir o quanto a operação segue as metas de cobertura e reposição.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Problema que Resolve:</strong>
+                    <p>Parâmetros definidos, mas não acompanhados em tempo real.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Solução Proposta:</strong>
+                    <p>Painel de conformidade por família/filial e variação do ideal.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Principais Indicadores:</strong>
+                    <ul>
+                        <li>% dentro da meta de cobertura</li>
+                        <li>Cobertura real vs ideal (Δ%)</li>
+                    </ul>
+                </div>
+                <div class="public-target">
+                    <strong>Público-Alvo:</strong>
+                    Planejamento e Diretoria de Operações. Acompanhar disciplina operacional e ajustes de política.
+                </div>
+            </div>
+
+            <!-- Dashboard 20 -->
+            <div class="dashboard-card" style="border-left-color: var(--color-primary);">
+                <span class="section-label" style="background-color: var(--color-primary);">BLOCO 3</span>
+                <h3>ROI Global de Supply Chain</h3>
+                <div class="dashboard-section">
+                    <strong>Objetivo:</strong>
+                    <p>Mensurar o retorno financeiro total das melhorias implementadas.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Problema que Resolve:</strong>
+                    <p>Dificuldade em quantificar impacto real das iniciativas de SCM.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Solução Proposta:</strong>
+                    <p>Painel consolidado com indicadores financeiros e operacionais correlacionados.</p>
+                </div>
+                <div class="dashboard-section">
+                    <strong>Principais Indicadores:</strong>
+                    <ul>
+                        <li>ROI total (%)</li>
+                        <li>Ganho acumulado (R$)</li>
+                        <li>Redução de custos operacionais (%)</li>
+                    </ul>
+                </div>
+                <div class="public-target">
+                    <strong>Público-Alvo:</strong>
+                    CEO e Conselho. Evidenciar resultado das iniciativas da Kenit SCM.
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <footer class="footer">
+        <p>&copy; 2025 Kenit SCM. Todos os direitos reservados. | <a href="#">Política de Privacidade</a> | <a href="mailto:contato@kenit.com.br">contato@kenit.com.br</a></p>
+    </footer>
+
+
+
+</body>
+</html>
